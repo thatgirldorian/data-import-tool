@@ -1,0 +1,36 @@
+{
+  "title": "Material demo",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "main": "index.tsx",
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
+  },
+  "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/guides/composition/Composition.tsx",
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "4.9.1",
+    "@material-ui/lab": "4.0.0-alpha.47",
+    "@types/lodash": "4.14.149",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "assets": "3.0.1",
+    "lodash": "^4.17.21",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest"
+  },
+  "keywords": [],
+  "name": "airboxr-fte-assignment-1",
+  "version": "0.0.44",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
