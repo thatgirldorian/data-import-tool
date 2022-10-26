@@ -5,7 +5,7 @@ import {
   PageContainer,
   FixedTopBar,
   FixedMiddleBodyWithVerticalScroll,
-  FixedBottomPominentButton,
+  FixedBottomProminentButton,
   TopbarBackButton
 } from "./layout-components";
 import _ from "lodash";
@@ -21,7 +21,7 @@ export default function ExamplePage () {
       <FixedMiddleBodyWithVerticalScroll>
         {/* Body goes here */}
       </FixedMiddleBodyWithVerticalScroll>
-      <FixedBottomPominentButton
+      <FixedBottomProminentButton
         title="Test / Debug"
         onClick={() => console.log("TODO - whatever you want to test/debug")}
       />

@@ -57,7 +57,7 @@ interface BottomButtonProps {
   title: string;
 }
 
-export const FixedBottomPominentButton: React.FunctionComponent<BottomButtonProps> = (
+export const FixedBottomProminentButton: React.FunctionComponent<BottomButtonProps> = (
   props
 ) => {
   return (
