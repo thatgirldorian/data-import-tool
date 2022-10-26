@@ -13,8 +13,6 @@ const HomePage = () => {
                     <Typography variant="body1" className="homepage-text">
                         Hey Let's start with the task you want to accomplish today.
                     </Typography>
-                    <Button href="/SelectSourcePage" variant="outlined" className="homepage-button">Import data</Button>
-                    <Button href="/SelectSourcePage" variant="outlined" className="homepage-button" color="secondary">Lookup data</Button>
                 </FixedMiddleBodyWithVerticalScroll>
             
             </PageContainer>

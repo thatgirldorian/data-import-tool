@@ -1,5 +1,7 @@
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { routes as appRoutes } from "../routes";
 
 const theme = createTheme({
   palette: {
@@ -75,5 +77,18 @@ const theme = createTheme({
 });
 
 export default function RootComponent(props: { children?: React.ReactNode }) {
-  return <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>{props.children}
+      <Routes>
+      {appRoutes.map((route) => (
+        <Route
+          key={route.key}
+          path={route.path}
+          element={<route.component />}
+        />
+      ))}
+    </Routes>
+    </ThemeProvider>
+    
+  )
 }
