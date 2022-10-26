@@ -25,8 +25,6 @@ export default function ExamplePage () {
         title="Test / Debug"
         onClick={() => console.log("TODO - whatever you want to test/debug")}
       />
-
-     
     </PageContainer>
   );
 };

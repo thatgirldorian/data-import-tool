@@ -7,9 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
   <BrowserRouter>
-    <RootComponent>
-      <HomePage />
-    </RootComponent>
+    <RootComponent/>
   </BrowserRouter>
   ,
   document.querySelector("#root")

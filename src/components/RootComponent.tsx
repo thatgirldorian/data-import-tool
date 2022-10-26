@@ -80,14 +80,14 @@ export default function RootComponent(props: { children?: React.ReactNode }) {
   return (
     <ThemeProvider theme={theme}>{props.children}
       <Routes>
-      {appRoutes.map((route) => (
-        <Route
-          key={route.key}
-          path={route.path}
-          element={<route.component />}
-        />
-      ))}
-    </Routes>
+        {appRoutes.map((route) => (
+          <Route
+            key={route.key}
+            path={route.path}
+            element={<route.component />}
+          />
+        ))}
+      </Routes>
     </ThemeProvider>
     
   )

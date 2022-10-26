@@ -7,15 +7,7 @@ import '../styles/style.css'
 const HomePage = () => {
 
     return (
-            <PageContainer>
-                <FixedTopBar title="What would you like to do today?"  />
-                <FixedMiddleBodyWithVerticalScroll>
-                    <Typography variant="body1" className="homepage-text">
-                        Hey Let's start with the task you want to accomplish today.
-                    </Typography>
-                </FixedMiddleBodyWithVerticalScroll>
-            
-            </PageContainer>
+            <ExamplePage />
     )
 
 }
