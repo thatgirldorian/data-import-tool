@@ -5,6 +5,10 @@
     margin-bottom: 10px !important;
 }
 
-.homepage-text {
+.homepage-text, .select-table-text {
     padding-bottom: 80px !important;
+}
+
+hr {
+    color: black !important;
 }
