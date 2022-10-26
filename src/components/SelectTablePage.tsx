@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Typography } from "@material-ui/core";
+import { Typography, Box, IconButton } from "@material-ui/core";
 import TableGroup from "./TableGroup";
 import {
-    PageContainer,
+    PageContainer, 
     FixedTopBar,
     FixedMiddleBodyWithVerticalScroll,
     TopbarBackButton,
@@ -17,11 +17,12 @@ const SelectSourcePage = () => {
 
     const topbarLeftButton: TopbarBackButton = {
         type: "back",
-        onClick: () => navigate("/")
+        onClick: () => navigate("/SelectSourcePage")
 };
 
     return (
         <PageContainer>
+            
             <FixedTopBar title="Select a table." leftButton={topbarLeftButton} />
             <FixedMiddleBodyWithVerticalScroll>
                     <Typography variant="body1" className="select-table-text">

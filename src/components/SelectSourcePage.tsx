@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Typography } from "@material-ui/core";
+import { Typography, Button, Box } from "@material-ui/core";
+import ApplicationBar from './ApplicationBar'
+
 import IconList from "./IconList";
 import {
     PageContainer,
@@ -20,18 +22,19 @@ const SelectSourcePage = () => {
 };
 
     return (
-        <PageContainer>
+       
+        
+        <PageContainer >
+
+            <ApplicationBar  />
+        
+            
             <FixedTopBar title="Select a source." leftButton={topbarLeftButton} />
             <FixedMiddleBodyWithVerticalScroll>
                     <Typography variant="body1" className="select-source-text">
                         Below is a list of the sources you have connected. Please choose the data source you would like to import data from.
                     </Typography>
                 <IconList />
-
-
-                        
-
-
 
                 </FixedMiddleBodyWithVerticalScroll>
         </PageContainer>

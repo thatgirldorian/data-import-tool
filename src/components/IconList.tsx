@@ -1,4 +1,5 @@
     import * as React from 'react';
+    import { useNavigate } from 'react-router-dom'
     import ImageList from '@mui/material/ImageList';
     import ImageListItem from '@mui/material/ImageListItem';
     import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -6,7 +7,17 @@
     import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
     import FavoriteIcon from '@mui/icons-material/Favorite';
 
+    
+
     export default function IconList() {
+
+        const navigate = useNavigate()
+
+        const iconClick = () => {
+            navigate('/SelectTablePage')
+        }
+    
+
     return (
         <ImageList sx={{ width: 500, height: 450 }}>
         <ImageListItem key="Subheader" cols={2}>
@@ -19,6 +30,7 @@
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
+                onClick={iconClick}
             />
             <ImageListItemBar
                 title={item.title}
@@ -40,7 +52,8 @@
     const itemData = [
     {
         img: 'src/public/mailchimp-logo.png',
-        title: 'MailChimp'
+        title: 'MailChimp',
+        
     },
     {
         img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',

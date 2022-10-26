@@ -4,6 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes as appRoutes } from "../routes";
 
 const theme = createTheme({
+  overrides: {
+    MuiRadio: {
+      root: {
+        padding: 3
+      }
+    }
+  },
   palette: {
     primary: {
       main: "#F86164"
@@ -15,6 +22,7 @@ const theme = createTheme({
   typography: {
     fontSize: 14,
     fontFamily: "Barlow",
+
     h4: {
       fontStyle: "normal",
       fontWeight: "bold",
@@ -74,6 +82,7 @@ const theme = createTheme({
   shape: {
     borderRadius: 0
   }
+
 });
 
 export default function RootComponent(props: { children?: React.ReactNode }) {

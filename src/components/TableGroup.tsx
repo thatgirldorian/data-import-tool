@@ -7,17 +7,27 @@ import FormLabel from '@mui/material/FormLabel';
 import '../styles/style.css'
 
 export default function TableGroup() {
+
     return (
     <FormControl>
-        <FormLabel fontSize="13" id="demo-radio-buttons-group-label">Gender</FormLabel>
+        <FormLabel 
+        id="demo-controlled-radio-buttons-group"
+        sx={{
+            fontSize: "14px",
+            color: "black"
+        }}
+        >Filter</FormLabel>
         <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="female"
             name="radio-buttons-group"
+            sx={{
+                fontSize: "-10px",
+            }}
         >
-            <FormControlLabel value="female" control={<Radio />} label="Female" />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel value="other" control={<Radio />} label="Other" />
+            <FormControlLabel value="audience"  control={<Radio />} label="Audience" />
+            <FormControlLabel value="campaign" control={<Radio />} label="Campaigns" />
+            <FormControlLabel value="reports" control={<Radio />} label="Reports" />
         </RadioGroup>
     </FormControl>
 );

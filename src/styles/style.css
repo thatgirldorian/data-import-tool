@@ -5,10 +5,19 @@
     margin-bottom: 10px !important;
 }
 
-.homepage-text, .select-table-text {
+.homepage-text {
     padding-bottom: 80px !important;
+}
+
+.select-table-text {
+    padding-bottom: 50px !important;
 }
 
 hr {
     color: black !important;
+}
+
+.chat-button {
+width: 10%;
+border-radius: 8px !important;
 }
