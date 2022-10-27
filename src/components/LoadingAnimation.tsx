@@ -23,7 +23,7 @@ export const LoadingAnimation = () => {
     return (
         <div className={classes.loading}>
         <CircularProgress />
-        <Typography className={classes.text}>Fetching data...</Typography>
+        <Typography className={classes.text}>Fetching your data sources...</Typography>
         </div>
     );
     };

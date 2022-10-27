@@ -7,6 +7,7 @@ import ApplicationBar from './ApplicationBar'
 import { Alert } from '@mui/material'
 import { TitlebarGridList } from "./DataSources";
 import { LoadingAnimation } from "./LoadingAnimation"
+import { DataSourceTable} from '../types'
 
 import {
     PageContainer,
@@ -21,6 +22,9 @@ interface DataSource {
     id: number;
     name: string;
     uuid: string;
+    tables: DataSourceTable[];
+    title: string;
+    isIndented: boolean;
     isFavorited: boolean;
 }
 
@@ -33,7 +37,7 @@ const SelectSourcePage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [dataSources, setDataSources] = useState<DataSource[]>([]);
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGxpY2FudEBhaXJib3hyLmNvbSIsImlhdCI6MTY2NjkwNDU4NiwiZXhwIjoxNjY2OTA2Mzg2fQ.1v5MZy6oOU0Or8zdqpCHUrk0wYGgYHpCxB5hH3dANLE"
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGxpY2FudEBhaXJib3hyLmNvbSIsImlhdCI6MTY2NjkwNzg3OCwiZXhwIjoxNjY2OTA5Njc4fQ.pXTK2Ltqo-xUSY2EiykNASoQWQhQ2dFMTf3zoHHWY4M"
 
     
         
@@ -51,26 +55,30 @@ const SelectSourcePage = () => {
             Authorization: `Bearer ${token}`,
         }),
         })
-        .then((res) => res.json())
+        .then((response) => response.json())
         .then(
-            (res) => {
+            (response) => {
+                
             setIsLoaded(true);
             setIsLoading(false);
-            if (res.statusCode) {        
-                setError(res.message);
+            if (response.statusCode) {        
+                setError(response.message);
             } else {
-                    res.push({ id: 5, name: "Google Sheets" });
-            res.forEach((source: DataSource) => (source.isFavorited = false));
-            setDataSources(res);
+                    response.push({ id: 13, name: "MailChimp", tables: response.tables.map(({ id, title}) => {
+                        id
+                        title
+                    })
+                });
+                    
+            response.forEach((source: DataSource) => (source.isFavorited = false));
+            setDataSources(response);
+            console.log(setDataSources)
             }
         },
         )
     }
 
 
-            
-
-    //Nothing shows up here :(
     useEffect(() => {
         fetchSources()
     }, [])

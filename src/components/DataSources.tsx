@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { makeStyles } from '@material-ui/core'
+import { PageContainer } from './layout-components';
 
 
 //import images
@@ -17,11 +18,7 @@ import GoogleAds from "../public/google-ads-logo.png";
 
     // export default function DataSources() {
 
-    //     const navigate = useNavigate()
-
-    //     const iconClick = () => {
-    //         navigate('/SelectTablePage')
-    //     }
+    
 
 
     import {
@@ -44,8 +41,13 @@ import GoogleAds from "../public/google-ads-logo.png";
 
 
 export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
-        const { datasource, isLoaded } = props;
-        console.log(datasource);
+        const { datasource } = props;
+
+        const navigate = useNavigate()
+
+        const iconClick = () => {
+            navigate('/SelectTablePage')
+        }
     
         const [datasources, setDatasources] = React.useState<DataSource[]>(
         datasource
@@ -127,14 +129,13 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
         );
     
         return (
-        <div>
-        
+        <PageContainer>
             <div className={classes.container}>
-                <GridList cellHeight={100} spacing={10}>
+                <GridList cellHeight={80} spacing={5}>
                 {filteredData.map((tile) => (
                     <GridListTile key={tile.id}>
                     <Typography className={classes.name}>
-                        {tile.name.toUpperCase()}
+                        {tile.name}
                     </Typography>
                     <img
                         className={classes.image}
@@ -151,15 +152,45 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
                 ))}
                 </GridList>
             </div>
-        
-        </div>
+        </PageContainer>
+            
         );
                 }
 
 
 
 
-
+{/* <PageContainer>
+             <div className={classes.container}>
+                <Grid container spacing={6} columns={8} >
+                {Array.from(Array(6)).map((_, index) => (
+                <Grid  xs={4} key={index}>
+                {filteredData.map((tile) => (
+                    
+                        <GridListTile key={tile.id}>
+                    <Typography className={classes.name}>
+                        {tile.name}
+                    </Typography>
+                    <img
+                        className={classes.image}
+                        src={renderDataSourceImage(tile.name)}
+                        alt={tile.name}
+                    />
+                    <IconButton
+                        className={classes.button}
+                        onClick={() => toggle(tile.id)}
+                    >
+                        {tile.isFavorited ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </IconButton>
+                    </GridListTile>
+                    
+                    
+                ))}
+                </Grid>
+                ))}
+                </Grid>
+            </div>
+       </PageContainer> */}
 
 
 
