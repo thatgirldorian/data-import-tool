@@ -196,6 +196,23 @@ export type DataSourceInjection =
       description: string;
     };
 
+
+    export type AuthTokenResponse = {
+      accessToken: string;
+    };
+    
+    export type DataStore = {
+      id: number;
+      name: string;
+      tables: DataSourceTable[];
+    };
+    
+    export type DataSourceTable = {
+      id: number;
+      title: string;
+      isIndented: boolean;
+    };
+
 // This isn't ideal. changed in key, label, description in data source injection should reflect here too..
 export type SyncedSourceInjection =
   | {

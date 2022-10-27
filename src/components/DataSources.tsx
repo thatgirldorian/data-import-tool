@@ -110,6 +110,7 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
         const classes = useStyles();
     
         const toggle = (id: number) => {
+            console.log(toggle)
         let newData = [...datasources];
         let index = datasources.findIndex((d) => d.id == id);
         let item = {
@@ -128,16 +129,6 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
         return (
         <div>
         
-    
-            {!isLoaded ? (
-            <Typography align="center" variant="body1">
-                Click the button below to fetch the data sources!
-            </Typography>
-            ) : filteredData.length == 0 ? (
-            <Typography align="center" variant="body1">
-                {`No data sources with '${search}' found`}
-            </Typography>
-            ) : (
             <div className={classes.container}>
                 <GridList cellHeight={100} spacing={10}>
                 {filteredData.map((tile) => (
@@ -160,7 +151,7 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
                 ))}
                 </GridList>
             </div>
-            )}
+        
         </div>
         );
                 }

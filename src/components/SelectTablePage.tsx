@@ -12,7 +12,7 @@ import {
 import '../styles/style.css'
 
 
-const SelectSourcePage = () => {
+const SelectTablePage = () => {
     const navigate = useNavigate()
 
     const topbarLeftButton: TopbarBackButton = {
@@ -39,4 +39,4 @@ const SelectSourcePage = () => {
 
 }
 
-export default SelectSourcePage
+export default SelectTablePage
