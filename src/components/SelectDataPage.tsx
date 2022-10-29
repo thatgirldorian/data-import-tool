@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-const SelectDataPage: React.FC = () => {
+const SelectDataPage = () => {
     const { dataStores, updateDataStores } = useContext(AppContext);
     const [favIdxs, setFavIdxs] = useState<number[]>([]);
     const classes = useStyles();
@@ -101,7 +101,7 @@ const SelectDataPage: React.FC = () => {
 
     const handleTileClick = (storeName: string) => {
         //fix navigate.push, not working :(
-        navigate(`/select-table/${storeName}`);
+        navigate(`/select-table-route/${storeName}`);
     };
 
     const favSources = dataStores.filter((source: DataStore) =>
