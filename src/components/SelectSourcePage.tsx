@@ -37,12 +37,8 @@ const SelectSourcePage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [dataSources, setDataSources] = useState<DataSource[]>([]);
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGxpY2FudEBhaXJib3hyLmNvbSIsImlhdCI6MTY2NjkwNzg3OCwiZXhwIjoxNjY2OTA5Njc4fQ.pXTK2Ltqo-xUSY2EiykNASoQWQhQ2dFMTf3zoHHWY4M"
 
-    
-        
-
-            
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGxpY2FudEBhaXJib3hyLmNvbSIsImlhdCI6MTY2Njk1NzQ0NiwiZXhwIjoxNjY2OTU5MjQ2fQ.TS0Xp-9auND1lJjMCDrG3Kt5V31w5CeMxlRgfx13zpo"
 
 
     const fetchSources = () => {
@@ -64,9 +60,16 @@ const SelectSourcePage = () => {
             if (response.statusCode) {        
                 setError(response.message);
             } else {
-                    response.push({ id: 13, name: "MailChimp", tables: response.tables.map(({ id, title}) => {
+                    response.push({ id: 13, name: "MailChimp", tables: response.map(({id, title} : { id: string | number; title: string}) => {
                         id
                         title
+                        // isIndented: this.isIndented(title)
+
+                        // response.push({ id: response.id, name: response, title: "", tables: response.map(({id, title} : { id: string | number; title: string}) => {
+                        //     id
+                        //     title
+                        //     console.log(title)
+                        
                     })
                 });
                     
@@ -110,10 +113,7 @@ const SelectSourcePage = () => {
             <TitlebarGridList datasource={dataSources} isLoaded={isLoaded} />
             )}
         </FixedMiddleBodyWithVerticalScroll>
-        {/* <FixedBottomProminentButton
-            title="Test / Debug"
-            // onClick={() => fetchSources()}
-        /> */}
+
                     </PageContainer>
     )
 

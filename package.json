@@ -23,7 +23,7 @@
     "@types/react-dom": "latest",
     "assets": "3.0.1",
     "lodash": "^4.17.21",
-    "react": "latest",
+    "react": "^17.0.2",
     "react-dom": "latest",
     "react-router-dom": "^6.4.2",
     "typescript": "latest"

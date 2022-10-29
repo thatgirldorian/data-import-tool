@@ -52,7 +52,7 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
         const [datasources, setDatasources] = React.useState<DataSource[]>(
         datasource
         );
-        const [search, setSearch] = React.useState("");
+        // const [search, setSearch] = React.useState("");
     
         React.useEffect(() => setDatasources(datasource), [datasource]);
     
@@ -91,15 +91,8 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
             position: "absolute",
             bottom: 0,
             right: 0,
-            border: 0,
+            border: "3px solid red",
             color: "black"
-        },
-        search: {
-            "border-radius": "5px",
-            width: "100%",
-            "box-shadow": "none",
-            border: "1px solid lightgray",
-            "margin-bottom": "30px",
         },
         name: {
             padding: "5px 0 0 5px"
@@ -125,7 +118,8 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
         };
     
         let filteredData = datasources.filter((dataSource) =>
-        dataSource.name.toLowerCase().includes(search.toLowerCase())
+            dataSource.name
+    
         );
     
         return (
@@ -145,6 +139,7 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
                     <IconButton
                         className={classes.button}
                         onClick={() => toggle(tile.id)}
+                        // onClick={() => navigate('/SelectTablePage') }
                     >
                         {tile.isFavorited ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </IconButton>
