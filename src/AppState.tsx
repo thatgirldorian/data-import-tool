@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-import { ApiClient} from './api/ApiClient'
+import { ApiClient } from './api/ApiClient'
 
 //export to types.ts later
 type DataStore = {
@@ -15,17 +15,20 @@ type DataSourceTable = {
     isIndented: boolean;
 };
 
+
+
 export const AppContext = createContext<{
     dataStores: DataStore[];
     updateDataStores: () => Promise<void>;
 }>({
     dataStores: [],
-    updateDataStores: () => Promise.resolve()
+    updateDataStores: () => Promise.reject()
 });
 
 const AppState: React.FC = ({ children }) => {
     const [dataStores, setDataStores] = useState<DataStore[]>([]);
     const apiClient = new ApiClient();
+    console.log(apiClient)
 
         const updateDataStores = async () => {
         const stores = await apiClient.getDataStores();

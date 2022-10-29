@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-const SelectDataPage = () => {
+const SelectDataPage: React.FC = () => {
     const { dataStores, updateDataStores } = useContext(AppContext);
     const [favIdxs, setFavIdxs] = useState<number[]>([]);
     const classes = useStyles();
@@ -101,7 +101,7 @@ const SelectDataPage = () => {
 
     const handleTileClick = (storeName: string) => {
         //fix navigate.push, not working :(
-        navigate(`/select-table-route/${storeName}`);
+        navigate(`/SelectTablePage/${storeName}`);
     };
 
     const favSources = dataStores.filter((source: DataStore) =>
@@ -111,14 +111,14 @@ const SelectDataPage = () => {
         (source: DataStore) => !favIdxs.includes(source.id)
     );
     const sortedSources: DataStore[] = favSources.concat(unfavSources);
+    
 
     return (
-        <>
         <PageContainer >
         <FixedTopBar title="Select a source." leftButton={topbarLeftButton} />
             {dataStores.length < 1 ? (
             <Box className="text-center" marginTop="30px">
-                <LoadingAnimation />
+                {/* <LoadingAnimation /> */}
             </Box>
             ) : (
             <>
@@ -128,6 +128,8 @@ const SelectDataPage = () => {
                     data source that you'd like to import data from.
                 </p>
                 </div>
+
+                
 
                 <div className={classes.root}>
                 <GridList className={classes.gridList} cols={2}>
@@ -168,7 +170,7 @@ const SelectDataPage = () => {
             </>
             )}
         </PageContainer>
-        </>
+
     );
 
 }
