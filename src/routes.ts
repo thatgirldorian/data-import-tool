@@ -37,6 +37,13 @@ export const routes: Array<Route> = [
         component: SelectDataPage
     },
     {
+        key: 'select-table-route/',
+        title: 'Select Table Page',
+        path: '/SelectTablePage/',
+        enabled: true,
+        component: SelectTablePage
+    },
+    {
         key: 'select-table-route/:source',
         title: 'Select Table Page',
         path: '/SelectTablePage/:source',
