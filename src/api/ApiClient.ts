@@ -13,6 +13,7 @@ type DataSourceTable = {
     id: number;
     title: string;
     isIndented: boolean;
+    
 };
 
 
@@ -34,13 +35,15 @@ export class ApiClient {
             })
         }).then((res) => res.json());
     
-        return sources.map((source) => ({
+        return sources.map((source: { id: any; name: any; tables: { id: any; title: any; }[]; }) => ({
             id: source.id,
             name: source.name,
             tables: source.tables.map(({ id, title }) => ({
             id,
             title,
             isIndented: this.isIndented(title)
+
+            
             }))
         }));
         }

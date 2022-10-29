@@ -15,7 +15,7 @@ type DataSourceTable = {
     isIndented: boolean;
 };
 
-    export const AppContext = createContext<{
+    export const AppContext =  createContext<{
     dataStores: DataStore[];
     updateDataStores: () => Promise<void>;
     }>({
@@ -27,9 +27,11 @@ type DataSourceTable = {
     const [dataStores, setDataStores] = useState<DataStore[]>([]);
     const apiClient = new ApiClient();
 
+
     const updateDataStores = async () => {
         const stores = await apiClient.getDataStores();
         setDataStores(stores);
+        console.log(setDataStores(stores))
     };
 
     return (
