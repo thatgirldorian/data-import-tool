@@ -124,8 +124,8 @@ export const TitlebarGridList: React.FunctionComponent<TileProps> = (props) => {
     
         return (
         <PageContainer>
-            <div className={classes.container}>
-                <GridList cellHeight={80} spacing={5}>
+            <div style={{marginTop: "50px"}} className={classes.container}>
+                <GridList  cellHeight={80} spacing={5}>
                 {filteredData.map((tile) => (
                     <GridListTile key={tile.id}>
                     <Typography className={classes.name}>

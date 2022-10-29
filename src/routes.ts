@@ -1,7 +1,7 @@
 import HomePage from './components/HomePage'
 import SelectSourcePage from './components/SelectSourcePage'
 import SelectTablePage from './components/SelectTablePage'
-
+import SelectDataPage from './components/SelectDataPage'
 // other
 import {FC} from "react";
 
@@ -35,5 +35,12 @@ export const routes: Array<Route> = [
         path: '/SelectTablePage',
         enabled: true,
         component: SelectTablePage
+    },
+    {
+        key: 'select-data-route',
+        title: 'Select Data Page',
+        path: '/SelectDataPage',
+        enabled: true,
+        component: SelectDataPage
     }
 ]

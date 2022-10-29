@@ -21,8 +21,9 @@ return (
             <Link to="/">
                 <IconButton
                     edge="start"
+                    size="small"
                     aria-label="menu"
-                    sx={{ mr: -2 }}
+                    sx={{ mr: 2 }}
                 >
                     <HomeIcon />
                 </IconButton>

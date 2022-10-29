@@ -24,11 +24,11 @@ export const FixedTopBar: React.FunctionComponent<TopBarProps> = (props) => {
       style={{
         paddingLeft: 15,
         paddingRight: 15,
-        top: 0,
+        top: 48,
         right: 0,
-        bottom: "auto",
+        bottom: 2,
         left: 0,
-        position: "fixed",
+        position: "relative",
         height: 60
       }}
       pt={1}
@@ -96,11 +96,11 @@ export const FixedMiddleBodyWithVerticalScroll: React.FunctionComponent<{}> = (
       style={{
         paddingLeft: 15,
         paddingRight: 15,
-        top: 70,
+        top: 44,
         right: 0,
         bottom: 65,
         left: 0,
-        position: "fixed",
+        position: "relative",
         overflowY: "scroll"
       }}
       display="flex"

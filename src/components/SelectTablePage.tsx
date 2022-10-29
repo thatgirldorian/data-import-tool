@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Typography, Box, IconButton } from "@material-ui/core";
 import TableGroup from "./TableGroup";
+import ApplicationBar from './ApplicationBar'
+
 import {
     PageContainer, 
     FixedTopBar,
@@ -21,8 +23,9 @@ const SelectTablePage = () => {
 };
 
     return (
+        
         <PageContainer>
-            
+            <ApplicationBar />
             <FixedTopBar title="Select a table." leftButton={topbarLeftButton} />
             <FixedMiddleBodyWithVerticalScroll>
                     <Typography variant="body1" className="select-table-text">

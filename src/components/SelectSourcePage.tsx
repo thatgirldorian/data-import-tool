@@ -38,7 +38,7 @@ const SelectSourcePage = () => {
     const [dataSources, setDataSources] = useState<DataSource[]>([]);
 
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGxpY2FudEBhaXJib3hyLmNvbSIsImlhdCI6MTY2Njk1NzQ0NiwiZXhwIjoxNjY2OTU5MjQ2fQ.TS0Xp-9auND1lJjMCDrG3Kt5V31w5CeMxlRgfx13zpo"
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFwcGxpY2FudEBhaXJib3hyLmNvbSIsImlhdCI6MTY2NzAzODQ3MSwiZXhwIjoxNjY3MDQwMjcxfQ.euHLtpRdAQZdcFGS2eTC4_bC17q1wk9VyPlrM1-na6o"
 
 
     const fetchSources = () => {
