@@ -18,13 +18,14 @@ type DataSourceTable = {
 
 
 export class ApiClient {
-        private authEmail = "applicant@airboxr.com";
-        private authPassword = "ZUSrS5jSZDvEPTyX";
-        private authUrl = "https://api.airboxr.com/auth/loginWithEmail";
-        private dataStoresUrl = "https://api.airboxr.com/data/dataStores";
+        authEmail = "applicant@airboxr.com";
+        authPassword = "ZUSrS5jSZDvEPTyX";
+        authUrl = "https://api.airboxr.com/auth/loginWithEmail";
+        dataStoresUrl = "https://api.airboxr.com/data/dataStores";
     
-        public async getDataStores(): Promise<DataStore[]> {
+        async getDataStores(): Promise<DataStore[]> {
         const token = await this.getAuthToken();
+        console.log(token);
     
         const sources = await fetch(this.dataStoresUrl, {
             method: "GET",
@@ -48,7 +49,8 @@ export class ApiClient {
         }));
         }
     
-        private async getAuthToken(): Promise<AuthTokenResponse> {
+        async getAuthToken(): Promise<AuthTokenResponse> {
+            
         return fetch(this.authUrl, {
             method: "POST",
             headers: {
@@ -62,7 +64,7 @@ export class ApiClient {
         }).then((res) => res.json());
         }
     
-        private isIndented(title: string) {
+        isIndented(title: string) {
         return title.includes("||");
         }
     }

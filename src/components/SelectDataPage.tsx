@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-const SelectDataPage = () => {
+const SelectDataPage: React.FC = () => {
     const { dataStores, updateDataStores } = useContext(AppContext);
     const [favIdxs, setFavIdxs] = useState<number[]>([]);
     const classes = useStyles();
@@ -87,7 +87,7 @@ const SelectDataPage = () => {
 
 
     const getImgUrl = (storeName: string) => {
-        return `/img/${storeName.toLowerCase().split(" ").join("-")}-logo.png`;
+        return `/images/${storeName.toLowerCase().split(" ").join("-")}-logo.png`;
     };
 
     const toggleFavIdx = (idx: number) => {
@@ -100,6 +100,7 @@ const SelectDataPage = () => {
     };
 
     const handleTileClick = (storeName: string) => {
+        //fix navigate.push, not working :(
         navigate(`/select-table/${storeName}`);
     };
 

@@ -15,32 +15,30 @@ type DataSourceTable = {
     isIndented: boolean;
 };
 
-    export const AppContext =  createContext<{
+export const AppContext = createContext<{
     dataStores: DataStore[];
     updateDataStores: () => Promise<void>;
-    }>({
+}>({
     dataStores: [],
-    updateDataStores: () => Promise.reject()
-    });
+    updateDataStores: () => Promise.resolve()
+});
 
-    const AppState: React.FC = ({ children }) => {
+const AppState: React.FC = ({ children }) => {
     const [dataStores, setDataStores] = useState<DataStore[]>([]);
     const apiClient = new ApiClient();
 
-
-    const updateDataStores = async () => {
+        const updateDataStores = async () => {
         const stores = await apiClient.getDataStores();
         setDataStores(stores);
-        console.log(setDataStores(stores))
-    };
-
-    return (
+        };
+    
+        return (
         <>
-        <AppContext.Provider value={{ dataStores, updateDataStores }}>
+            <AppContext.Provider value={{ dataStores, updateDataStores }}>
             {children}
-        </AppContext.Provider>
+            </AppContext.Provider>
         </>
-    );
-};
+        );
+    };
 
 export default AppState;
