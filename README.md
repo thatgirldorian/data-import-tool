@@ -1,3 +1,21 @@
+This is a React app that will look up some data, pull the data sources you currently have connected and allow you import your data. It's my submission for the Airboxr FTE Intership assessment. 
+
+<h3>Technologies used:</h3>
+
+- TypeScript
+- CSS
+- React JS
+- Material UI
+- JavaScript
+- GitHub
+
+
+<h3>Screenshare/App Demo:</h3>
+
+https://user-images.githubusercontent.com/40691059/198902876-e2cb9416-dec0-4926-83b2-bacfb6fdcd6b.mov
+
+
+
 # Airboxr FTE Frontend Assignment
 
 ## Instructions
