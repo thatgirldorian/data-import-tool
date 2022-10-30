@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-const SelectDataPage: React.FC = () => {
+const SelectDataPage = () => {
     const { dataStores, updateDataStores } = useContext(AppContext);
     const [favIdxs, setFavIdxs] = useState<number[]>([]);
     const classes = useStyles();

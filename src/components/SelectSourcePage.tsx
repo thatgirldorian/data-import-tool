@@ -96,7 +96,7 @@ const SelectSourcePage = () => {
 
 
     return (
-        <PageContainer >
+        <PageContainer>
             <ApplicationBar  />  
             <FixedTopBar title="Select a source." leftButton={topbarLeftButton} />
             <FixedMiddleBodyWithVerticalScroll>

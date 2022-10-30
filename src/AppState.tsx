@@ -19,10 +19,10 @@ type DataSourceTable = {
 
 export const AppContext = createContext<{
     dataStores: DataStore[];
-    updateDataStores: () => Promise<void>;
+    updateDataStores: any;
 }>({
     dataStores: [],
-    updateDataStores: () => Promise.reject()
+    updateDataStores: () => {}
 });
 
 const AppState: React.FC = ({ children }) => {
