@@ -8,8 +8,8 @@ export const LoadingAnimation = () => {
     const useStyles = makeStyles(() => ({
         loading: {
         width: "50%",
-        margin: "auto",
         "text-align": "center",
+        margin: " 40px auto",
         padding: "10px"
         
         },

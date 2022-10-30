@@ -11,20 +11,7 @@ import {
 } from "@material-ui/core";
 import ApplicationBar from './ApplicationBar'
 import appStoreService from '../AppState';
-
-
-//export to types.ts later
-type DataStore = {
-    id: number;
-    name: string;
-    tables: DataSourceTable[];
-};
-
-type DataSourceTable = {
-    id: number;
-    title: string;
-    isIndented: boolean;
-};
+import { DataStore } from '../types'
 
 
 import {
@@ -88,16 +75,9 @@ const SelectTablePage = () => {
         const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
             setSelectedTitle(event.target.value);
         };
-
-        const handleItemClick = () => {
-            <FixedBottomProminentButton
-                title="HAHAHA"
-                onClick={() => console.log('works')}
-            />
-        }
         
         
-        const handleOnNext = () => {
+        const handleOnNextClick = () => {
             if (!table && selectedTitle && isIndented) {
             setSelectedTitle("");
             setSearchText("");
@@ -132,37 +112,42 @@ return (
                     onChange={(e) => setSearchText(e.target.value)}
                     />
 
-    <FormControl component="fieldset">
-        <FormLabel component="legend">Tables</FormLabel>
-        <RadioGroup
-            aria-label="table"
-            name="table1"
-            value={selectedTitle}
-            onChange={handleChange}
-        >
-            {!!filteredTitles && filteredTitles.map((title, i) => (
-            <FormControlLabel
-                key={i}
-                value={title}
-                control={<Radio />}
-                label={title}
-            />
-            ))}
-        </RadioGroup>
-    </FormControl>   
+            <FormControl style={{paddingTop: "10px"}}  component="fieldset">
+                <FormLabel style={{paddingTop: "10px", paddingLeft: "-10px"}} component="legend">Tables available for this source</FormLabel>
+                <RadioGroup
+                    aria-label="table"
+                    name="table1"
+                    value={selectedTitle}
+                    onChange={handleChange}
+                >
+                    {!!filteredTitles && filteredTitles.map((title, i) => (
+                    <FormControlLabel
+                        key={i}
+                        value={title}
+                        control={<Radio />}
+                        label={title}
+                    />
+                    ))}
+                </RadioGroup>
+                </FormControl>   
 
-    {selectedTitle ? (
+        <FixedBottomProminentButton 
+        
+            title=" Next"
+            onClick={() => handleOnNextClick()} />
+
+    {/* {selectedTitle ? (
         <FixedBottomProminentButton 
     
-        title="Title is selected o"
-        onClick={() => handleOnNext()} />
+        title={`${selectedTitle} has been selected`}
+        onClick={() => handleOnNextClick()} />
     ) : (
         <FixedBottomProminentButton 
     
         title=" Next"
-        onClick={() => handleOnNext()} />
+        onClick={() => handleOnNextClick()} />
     )}
-    
+     */}
 
     </FixedMiddleBodyWithVerticalScroll> 
     </PageContainer>
