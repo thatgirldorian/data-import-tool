@@ -9,7 +9,7 @@
     padding-bottom: 80px !important;
 }
 
-.select-table-text {
+.select-table-text , .select-source-text {
     padding-bottom: 50px !important;
 }
 
@@ -20,4 +20,8 @@ hr {
 .chat-button {
 width: 10%;
 border-radius: 8px !important;
+}
+
+ImageList {
+    background-color: red;
 }

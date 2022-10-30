@@ -3,7 +3,6 @@ import { redirect, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import SelectSourcePage from "./components/SelectSourcePage";
 import SelectTablePage from "./components/SelectTablePage";
-import SelectDataPage from './components/SelectDataPage'
 
 const AppRoutes: React.FC = () => {
     return (

@@ -111,9 +111,9 @@ return (
         <ApplicationBar />
         <FixedTopBar title="Select a table." leftButton={topbarLeftButton} />
         <FixedMiddleBodyWithVerticalScroll>
-                <p className="select-table-text">
-                    hi, {source} {table} has the following tables ready for import. Please select the table you would like to import.
-                </p>
+                <Typography variant="body1" className="select-table-text">
+                    {source} {table} has the following tables ready for import. Please select the table you would like to import.
+                </Typography>
 
 
                 <TextField
