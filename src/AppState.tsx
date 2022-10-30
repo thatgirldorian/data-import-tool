@@ -25,6 +25,20 @@ export const AppContext = createContext<{
     updateDataStores: () => {}
 });
 
+//use an immediately invoked function to update the data
+class AppStateService {
+    dataStores: DataStore[] = [];
+
+    updateDataStores = async () => {
+        const apiClient = new ApiClient();
+        this.dataStores = await apiClient.getDataStores();
+        console.log({ dataStoreFromAppState: this.dataStores });
+    };
+};
+
+const appStateService = new AppStateService();
+export default appStateService;
+
 const AppState: React.FC = ({ children }) => {
     const [dataStores, setDataStores] = useState<DataStore[]>([]);
     const apiClient = new ApiClient();
@@ -44,4 +58,4 @@ const AppState: React.FC = ({ children }) => {
         );
     };
 
-export default AppState;
+// export default AppState;

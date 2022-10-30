@@ -24,29 +24,31 @@ export class ApiClient {
         dataStoresUrl = "https://api.airboxr.com/data/dataStores";
     
         async getDataStores(): Promise<DataStore[]> {
-        const token = await this.getAuthToken();
-        console.log(token);
-    
-        const sources = await fetch(this.dataStoresUrl, {
-            method: "GET",
-            headers: new Headers({
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token.accessToken
+            const token = await this.getAuthToken();
+        
+            const response = await fetch(this.dataStoresUrl, {
+                method: "GET",
+                headers: new Headers({
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + token.accessToken
+                })
             })
-        }).then((res) => res.json());
-    
-        return sources.map((source: { id: any; name: any; tables: { id: any; title: any; }[]; }) => ({
-            id: source.id,
-            name: source.name,
-            tables: source.tables.map(({ id, title }) => ({
-            id,
-            title,
-            isIndented: this.isIndented(title)
+            const sources = await response.json();
 
-            
-            }))
-        }));
+            console.log({ sources });
+        
+            return sources.map((source: { id: any; name: any; tables: { id: any; title: any; }[]; }) => ({
+                id: source.id,
+                name: source.name,
+                tables: source.tables.map(({ id, title }) => ({
+                id,
+                title,
+                isIndented: this.isIndented(title)
+
+                
+                }))
+            }));
         }
     
         async getAuthToken(): Promise<AuthTokenResponse> {
@@ -61,7 +63,7 @@ export class ApiClient {
             email: this.authEmail,
             password: this.authPassword
             })
-        }).then((res) => res.json());
+        }).then((res) => res.json()).catch((err) => console.error(err));
         }
     
         isIndented(title: string) {

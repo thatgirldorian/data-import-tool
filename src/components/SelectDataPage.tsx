@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Typography, Button, Box, GridList,
     GridListTile,
@@ -9,11 +9,12 @@ import { Theme, makeStyles, createStyles } from "@material-ui/core";
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { AppContext } from '../AppState'
+
 
 import { Alert } from '@mui/material'
 import { TitlebarGridList } from "./DataSources";
 import { LoadingAnimation } from "./LoadingAnimation"
+import appStoreService from '../AppState';
 
 import {
     PageContainer,
@@ -67,17 +68,20 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-
 const SelectDataPage = () => {
-    const { dataStores, updateDataStores } = useContext(AppContext);
+    // const { dataStores, updateDataStores } = useContext(AppContext);
     const [favIdxs, setFavIdxs] = useState<number[]>([]);
+    const [dataStores, setDataStores] = useState<DataStore[]>([]);
     const classes = useStyles();
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (dataStores.length < 1) {
-        updateDataStores();
+        async function init() {
+            await appStoreService.updateDataStores();
+            setDataStores(appStoreService.dataStores);
         }
+
+        init();
     }, []);
 
     const topbarLeftButton: TopbarBackButton = {
@@ -100,17 +104,17 @@ const SelectDataPage = () => {
     };
 
     const handleTileClick = (storeName: string) => {
-        //fix navigate.push, not working :(
+        console.log("Clicked on: " + storeName);
         navigate(`/SelectTablePage/${storeName}`);
     };
 
-    const favSources = dataStores.filter((source: DataStore) =>
+    const favSources = useMemo(() => dataStores.filter((source: DataStore) =>
         favIdxs.includes(source.id)
-    );
-    const unfavSources = dataStores.filter(
+    ), [dataStores, favIdxs]);
+    const unfavSources = useMemo(() => dataStores.filter(
         (source: DataStore) => !favIdxs.includes(source.id)
-    );
-    const sortedSources: DataStore[] = favSources.concat(unfavSources);
+    ), [dataStores, favIdxs]);
+    const sortedSources: DataStore[] = useMemo(() => favSources.concat(unfavSources), [favSources, unfavSources]);
     
 
     return (
@@ -118,7 +122,7 @@ const SelectDataPage = () => {
         <FixedTopBar title="Select a source." leftButton={topbarLeftButton} />
             {dataStores.length < 1 ? (
             <Box className="text-center" marginTop="30px">
-                {/* <LoadingAnimation /> */}
+                <LoadingAnimation />
             </Box>
             ) : (
             <>
@@ -136,11 +140,11 @@ const SelectDataPage = () => {
                     {sortedSources.map((store: DataStore) => (
                     <GridListTile className={classes.gridListTile} key={store.id}>
                         <div onClick={() => handleTileClick(store.name)}>
-                        <img
-                            className={classes.img}
-                            src={getImgUrl(store.name)}
-                            alt={store.name}
-                        />
+                            <img
+                                className={classes.img}
+                                src={getImgUrl(store.name)}
+                                alt={store.name}
+                            />
                         </div>
                         <GridListTileBar
                         title={store.name}

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, redirect, useParams } from 'react-router-dom'
 import { Typography } from "@material-ui/core";
 import {
@@ -10,11 +10,10 @@ import {
     Radio
 } from "@material-ui/core";
 import ApplicationBar from './ApplicationBar'
+import appStoreService from '../AppState';
 
-import { AppContext } from "../AppState";
 
 //export to types.ts later
-
 type DataStore = {
     id: number;
     name: string;
@@ -39,7 +38,7 @@ import '../styles/style.css'
 
 
 const SelectTablePage = () => {
-    const { dataStores } = useContext(AppContext);
+    const { dataStores } = appStoreService;
     const { source, table } = useParams<{
     source?: string;
     table?: string;}>();
@@ -56,23 +55,23 @@ const SelectTablePage = () => {
             redirect("/SelectDataPage")
         }
         
-        const primaryTables = store.tables.map((tbl) => ({
+        const primaryTables = !!store && store.tables.map((tbl) => ({
             ...tbl,
             title: tbl.title.split("||")[0]
         }));
         
-        const indentedPrimaryTables = primaryTables.filter((tbl) => tbl.isIndented);
+        const indentedPrimaryTables = !!primaryTables && primaryTables.filter((tbl) => tbl.isIndented);
         
-        const isIndented = indentedPrimaryTables.find(
+        const isIndented = !!indentedPrimaryTables && indentedPrimaryTables.find(
             (tbl) => tbl.title === selectedTitle
         );
         
-        let uniqueTitles = primaryTables
+        let uniqueTitles = !!primaryTables && primaryTables
             .map((tbl) => tbl.title)
             .filter((t, i, titles) => titles.indexOf(t) === i);
         
         if (table) {
-            uniqueTitles = store.tables
+            uniqueTitles = !!store && store.tables
             .map((tbl) => ({ ...tbl, title: tbl.title.split("||") }))
             .filter((tbl) => tbl.title[0] === table)
             .map((tbl) => tbl.title[1]);
@@ -81,7 +80,7 @@ const SelectTablePage = () => {
         const filteredTitles =
             searchText === ""
             ? uniqueTitles
-            : uniqueTitles.filter(
+            : !!uniqueTitles && uniqueTitles.filter(
                 (title) =>
                     title.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
                 );
@@ -113,8 +112,7 @@ return (
         <FixedTopBar title="Select a table." leftButton={topbarLeftButton} />
         <FixedMiddleBodyWithVerticalScroll>
                 <p className="select-table-text">
-                    hi
-                    {{source}} {{table}} has the following tables ready for import. Please select the table you would like to import.
+                    hi, {source} {table} has the following tables ready for import. Please select the table you would like to import.
                 </p>
 
 
@@ -132,7 +130,7 @@ return (
             value={selectedTitle}
             onChange={handleChange}
         >
-            {filteredTitles.map((title, i) => (
+            {!!filteredTitles && filteredTitles.map((title, i) => (
             <FormControlLabel
                 key={i}
                 value={title}
@@ -141,7 +139,7 @@ return (
             />
             ))}
         </RadioGroup>
-    </FormControl> 
+    </FormControl>   
     
     <FixedBottomProminentButton 
                 // style={{textTransform: "none"}}
