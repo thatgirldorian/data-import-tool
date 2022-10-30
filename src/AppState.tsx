@@ -12,7 +12,7 @@ class AppStateService {
     updateDataStores = async () => {
         const apiClient = new ApiClient();
         this.dataStores = await apiClient.getDataStores();
-        console.log({ dataStoreFromAppState: this.dataStores });
+
     };
 };
 
@@ -22,7 +22,6 @@ export default appStateService;
 const AppState: React.FC = ({ children }) => {
     const [dataStores, setDataStores] = useState<DataStore[]>([]);
     const apiClient = new ApiClient();
-    console.log(apiClient)
 
         const updateDataStores = async () => {
         const stores = await apiClient.getDataStores();

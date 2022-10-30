@@ -81,7 +81,6 @@ const SelectSourcePage = () => {
     };
 
     const handleImageTileClick = (storeName: string) => {
-        console.log("Clicked on: " + storeName);
         navigate(`/SelectTablePage/${storeName}`);
     };
 
