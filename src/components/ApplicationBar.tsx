@@ -16,7 +16,7 @@ return (
     <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed"
             style={{backgroundColor: "#f6f8fb", boxShadow: "none", }}
-            >
+        >
             <Toolbar>
             <Link to="/">
                 <IconButton
@@ -27,12 +27,11 @@ return (
                 >
                     <HomeIcon />
                 </IconButton>
-            </Link>
-
+            </Link>   
             
-            
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         </Typography>
+        
             <Button variant="contained" startIcon={<ChatIcon />}  style={{border: "1px solid #5ad0a4",  padding: "2px 10px", backgroundColor: "#31c48d", boxShadow: "none"}}>
                 Chat
             </Button>

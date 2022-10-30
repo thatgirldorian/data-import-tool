@@ -7,17 +7,16 @@ import { Theme, makeStyles, createStyles } from "@material-ui/core";
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { DataStore, DataSourceTable} from '../types'
 
 
 import { Alert } from '@mui/material'
-import { TitlebarGridList } from "./DataSources";
 import { LoadingAnimation } from "./LoadingAnimation"
 import appStoreService from '../AppState';
 
 import {
     PageContainer,
     FixedTopBar,
-    FixedBottomProminentButton,
     FixedMiddleBodyWithVerticalScroll,
     TopbarBackButton
 } from "./layout-components";
@@ -25,19 +24,6 @@ import '../styles/style.css'
 
 
 
-//export to types.ts later
-
-type DataStore = {
-    id: number;
-    name: string;
-    tables: DataSourceTable[];
-};
-
-type DataSourceTable = {
-    id: number;
-    title: string;
-    isIndented: boolean;
-};
 
 
 
@@ -171,7 +157,7 @@ const SelectSourcePage = () => {
                 </ImageList>
                 </div>
                 </FixedMiddleBodyWithVerticalScroll>
-               
+        
             </>
             )}
         </PageContainer>
