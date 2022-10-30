@@ -88,17 +88,27 @@ const SelectTablePage = () => {
         const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
             setSelectedTitle(event.target.value);
         };
+
+        const handleItemClick = () => {
+            <FixedBottomProminentButton
+                title="HAHAHA"
+                onClick={() => console.log('works')}
+            />
+        }
         
-        const handleOnNext = (e: any) => {
+        
+        const handleOnNext = () => {
             if (!table && selectedTitle && isIndented) {
             setSelectedTitle("");
             setSearchText("");
-            //fix navigate.push
+
             navigate(`/SelectTablePage/${source}/${selectedTitle}`);
+            
             } else {
             console.log(`TODO - Go to SelectColumnsPage - of ${selectedTitle}`);
             }
         };
+
         
 
     const topbarLeftButton: TopbarBackButton = {
@@ -112,12 +122,12 @@ return (
         <FixedTopBar title="Select a table." leftButton={topbarLeftButton} />
         <FixedMiddleBodyWithVerticalScroll>
                 <Typography variant="body1" className="select-table-text">
-                    {source} {table} has the following tables ready for import. Please select the table you would like to import.
+                    {source}  has the following tables ready for import. Please select the table you would like to import.
                 </Typography>
 
 
                 <TextField
-                    label="Filter..."
+                    label="Filter"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
                     />
@@ -140,11 +150,20 @@ return (
             ))}
         </RadioGroup>
     </FormControl>   
+
+    {selectedTitle ? (
+        <FixedBottomProminentButton 
     
-    <FixedBottomProminentButton 
-                // style={{textTransform: "none"}}
-                title="Next"
-                onClick={() => console.log("TODO - whatever you want to test/debug")} />
+        title="Title is selected o"
+        onClick={() => handleOnNext()} />
+    ) : (
+        <FixedBottomProminentButton 
+    
+        title=" Next"
+        onClick={() => handleOnNext()} />
+    )}
+    
+
     </FixedMiddleBodyWithVerticalScroll> 
     </PageContainer>
 )

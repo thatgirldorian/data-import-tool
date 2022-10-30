@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,7 +15,7 @@ return (
 
     <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed"
-            style={{backgroundColor: "#e2e8f0", boxShadow: "none", }}
+            style={{backgroundColor: "#f6f8fb", boxShadow: "none", }}
             >
             <Toolbar>
             <Link to="/">
@@ -33,7 +33,7 @@ return (
             
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         </Typography>
-            <Button variant="contained" startIcon={<ChatIcon />}  style={{ borderRadius: "4px", backgroundColor: "green"}}>
+            <Button variant="contained" startIcon={<ChatIcon />}  style={{border: "1px solid #5ad0a4",  padding: "2px 10px", backgroundColor: "#31c48d", boxShadow: "none"}}>
                 Chat
             </Button>
             </Toolbar>

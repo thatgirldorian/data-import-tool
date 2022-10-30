@@ -71,7 +71,8 @@ export const FixedBottomProminentButton: React.FunctionComponent<BottomButtonPro
         right: 0,
         bottom: 0,
         left: 0,
-        position: "fixed"
+        position: "fixed",
+
       }}
       display="flex"
       flexDirection="column"
@@ -80,7 +81,7 @@ export const FixedBottomProminentButton: React.FunctionComponent<BottomButtonPro
       {props.processing || false ? (
         <CircularProgress />
       ) : (
-        <Button style={{ height: 50, width: "100%" }} onClick={props.onClick}>
+        <Button style={{ height: 50, width: "100%", textTransform: "none"}} onClick={props.onClick}>
           {props.title}
         </Button>
       )}

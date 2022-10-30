@@ -163,7 +163,7 @@ const SelectSourcePage = () => {
                             )}
                             </IconButton>
                         }
-                        titlePosition="bottom"
+                        position="bottom"
                         actionPosition="right"
                         />
                     </ImageListItem>

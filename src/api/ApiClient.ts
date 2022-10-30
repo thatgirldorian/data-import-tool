@@ -1,26 +1,10 @@
-//export to types.ts later
-type AuthTokenResponse = {
-    accessToken: string;
-};
-
-type DataStore = {
-    id: number;
-    name: string;
-    tables: DataSourceTable[];
-};
-
-type DataSourceTable = {
-    id: number;
-    title: string;
-    isIndented: boolean;
-    
-};
+import { AuthTokenResponse, DataStore} from '../types'
 
 
 export class ApiClient {
-        authEmail = "applicant@airboxr.com";
-        authPassword = "ZUSrS5jSZDvEPTyX";
         authUrl = "https://api.airboxr.com/auth/loginWithEmail";
+        authPassword = "ZUSrS5jSZDvEPTyX";
+        authEmail = "applicant@airboxr.com";
         dataStoresUrl = "https://api.airboxr.com/data/dataStores";
     
         async getDataStores(): Promise<DataStore[]> {
@@ -35,8 +19,6 @@ export class ApiClient {
                 })
             })
             const sources = await response.json();
-
-            console.log({ sources });
         
             return sources.map((source: { id: any; name: any; tables: { id: any; title: any; }[]; }) => ({
                 id: source.id,
@@ -44,9 +26,7 @@ export class ApiClient {
                 tables: source.tables.map(({ id, title }) => ({
                 id,
                 title,
-                isIndented: this.isIndented(title)
-
-                
+                isIndented: this.isIndented(title)      
                 }))
             }));
         }
