@@ -1,31 +1,11 @@
 import React, { createContext, useState } from "react";
 
 import { ApiClient } from './api/ApiClient'
-
-//export to types.ts later
-type DataStore = {
-    id: number;
-    name: string;
-    tables: DataSourceTable[];
-};
-
-type DataSourceTable = {
-    id: number;
-    title: string;
-    isIndented: boolean;
-};
+import { DataStore } from './types'
 
 
 
-export const AppContext = createContext<{
-    dataStores: DataStore[];
-    updateDataStores: any;
-}>({
-    dataStores: [],
-    updateDataStores: () => {}
-});
 
-//use an immediately invoked function to update the data
 class AppStateService {
     dataStores: DataStore[] = [];
 
@@ -51,11 +31,7 @@ const AppState: React.FC = ({ children }) => {
     
         return (
         <>
-            <AppContext.Provider value={{ dataStores, updateDataStores }}>
-            {children}
-            </AppContext.Provider>
+    
         </>
         );
     };
-
-// export default AppState;

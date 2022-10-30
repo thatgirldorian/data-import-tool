@@ -2,7 +2,7 @@ import HomePage from './components/HomePage'
 import SelectSourcePage from './components/SelectSourcePage'
 import SelectTablePage from './components/SelectTablePage'
 
-// other
+
 import {FC} from "react";
 
 // interface
