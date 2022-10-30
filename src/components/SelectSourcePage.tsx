@@ -116,6 +116,7 @@ const SelectSourcePage = () => {
                                 <ImageListItem className={classes.imageListItem} key={store.id}>
                                     <div onClick={() => handleImageTileClick(store.name)}>
                                         <img
+                                            style={{ maxWidth: "150px"}}
                                             className={classes.img}
                                             src={getImageUrl(store.name)}
                                             alt={store.name}
