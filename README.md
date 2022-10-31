@@ -1,6 +1,6 @@
 # Data Import Tool 
 
-This is a React app that will look up some data, pull the data sources you currently have connected and allow you import your data. It's my submission for the Airboxr FTE Intership assessment. 
+This is a React app that will look up some data, pull the data sources you currently have connected and allow you import your data. It's my submission for the Airboxr FTE Internship assessment. 
 
 <h3>Technologies used:</h3>
 
